@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo">PortFolio</a>
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#About">About</a>
+            <a href="#Projects">Projects</a>
+            <a href="#Contact">Contact</a>
+        </nav>
+    </header>
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hi, Myself</h3>
+            <h1>Siva S</h1>
+            <h3>And I'm a Software Developer</h3>
+            <p>A passionate and enthusiastic IT professional eager to embark on an exciting journey in the world of technology.</p>
+            <div class="social-media">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/sivas203/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/Sivasaktih"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <a href="https://drive.google.com/file/d/1f88By380OM9q1p8K8oYljHNK7jbh044z/view?usp=drive_link" class="btn">Download CV</a>
+        </div>
+        <div class="home-img">
+            <img src="Myphoto.jpg" alt="">
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="Photo-2.jpeg" alt="Aboutpic">
+        </div>
+        <div class="about-content">
+            <h2 class="heading">ABOUT <span>ME</span></h2>
+            <h3>Software Developer</h3>
+            <p>Hello! I'm Siva S, a passionate and enthusiastic IT professional eager to embark on an exciting journey in the world of technology. I currently studying BTech Information Technolgy from the karpagam College Of Engineering, where I honed my skills and developed a strong foundation in  software development, web development, networking.
+            </p>
+            <a href="#" class="btn">Read more</a>
+        </div>
+    </section>
+    <section class="portfolio" id="portfolio">
+        <h2 class="heading">Latest <span>Projects</span></h2>
+        <div class="portfolio-container">
+            <div class="portfolio-box">
+                <img src="img-1.jpg" alt="Dream-House">
+                <div class="portfolio-layer">
+                    <h4>Dream-House</h4>
+                    <p>This project deals with the real-estate where it can find the house or land on the area where you
+                        wishes for</p>
+                    <a href="https://github.com/Sivasaktih/Dreamhouse.git"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="img-2.jpg" alt="Dream-House">
+                <div class="portfolio-layer">
+                    <h4>Hackermania</h4>
+                    <p>Designed for the events associated with the college cultural. It was specially designed for the cultural publicity for the college
+                    </p>
+                    <a href="https://github.com/Sivasaktih/hackermania.git"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="img-3.png" alt="Dream-House">
+                <div class="portfolio-layer">
+                    <h4>Simple Calculator</h4>
+                    <p>Designed for calculating the mathematical problems mostly useful for problem solving
+                    </p>
+                   <a href="https://github.com/Sivasaktih/Calculator.git"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="img-4.jpg" alt="Dream-House">
+                <div class="portfolio-layer">
+                    <h4>To-do List</h4>
+                    <p>Simple todo list web app to save and manage to-dos, and save them to the local storage The web app has a beautiful UI design that is make it dun adding to-dos
+                    </p>
+                    <a href="https://github.com/Sivasaktih/To-do.git"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+     <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
+        <form action="#">
+            <div class="input-box">
+                <input type="text" placeholder="Full Name">
+                <input type="email" placeholder="Email Address">
+            </div>
+            <div class="input-box">
+                <input type="number" placeholder="Mobile Number">
+                <input type="text" placeholder="Email Subject">
+            </div>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Your Feedback"></textarea>
+            <input type="submit" value="Send Message" class="btn">
+        </form>
+     </section>
+
+    <script>
+        let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
+
+menuIcon.onclick = () =>{
+    menuIcon.classList.toggle('fa-xmark');
+    navbar.classList.toggle('active');
+}
+let sections = document.querySelector('section');
+let navLinks = document.querySelector('header nav a');
+
+window.onscroll = () => {
+    sections.forEach(sec => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
+        if(top>=offset && top < offset + height)
+        {
+            navLinks.forEach.apply(links => {
+                links.classList.remove('active');
+                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+            });
+        };
+    });
+    let header = document.querySelector('header');
+    header.classList.toggle('sticky', window.scrollY >100);
+    menuIcon.classList.remove('fa-xmark');
+    navbar.classList.remove('active');
+};
+
+ScrollReveal({
+    distance:'80px',
+    duration:2000,
+    delay:200,
+});
+ScrollReveal().reveal('.home-content, heading',{orgin:'top'});
+ScrollReveal().reveal('.home-img, .portfolio-box, .contact form',{orgin:'button'});
+ScrollReveal().reveal('.home-ontent h1, .about-img',{orgin:'left'});
+ScrollReveal().reveal('.home-content p, .about-content',{orgin:'right'});
+    </script>
+</body>
+
+</html>
